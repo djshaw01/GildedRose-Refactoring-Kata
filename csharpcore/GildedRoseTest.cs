@@ -26,7 +26,7 @@ namespace csharpcore
             sellin.Should().Be(10);
             quality.Should().Be(10);
             item.Should().BeOfType<ConjuredItem>();
-            item = itemBuilder.build(new Item() {Name = "Sulfuras", SellIn = 10, Quality = 10});
+            item = itemBuilder.build(new Item() {Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 10});
             sellin = item.SellIn;
             quality = item.Quality;
             sellin.Should().Be(10);

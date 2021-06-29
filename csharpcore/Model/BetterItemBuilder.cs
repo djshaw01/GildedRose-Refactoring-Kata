@@ -12,15 +12,15 @@ namespace csharpcore
             {
                 return new BackStagePass() {Name = item.Name, Quality = item.Quality, SellIn = item.SellIn};
             }
+            if (item.Name.StartsWith("Sulfuras"))
+            {
+                return new LegendaryItem() {Name = item.Name, SellIn = item.SellIn};
+            }
             if ("Aged Brie".Equals(item.Name))
             {
                 return new AgedBrie() {Name = item.Name, Quality = item.Quality, SellIn = item.SellIn};
             }
 
-            if ("Sulfuras".Equals(item.Name) )
-            {
-                return new LegendaryItem() {Name = item.Name, SellIn = item.SellIn};
-            }
 
             return new BetterItem() {Name = item.Name, Quality = item.Quality, SellIn = item.SellIn};
         }
