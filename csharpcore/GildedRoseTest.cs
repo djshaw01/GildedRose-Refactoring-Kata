@@ -215,7 +215,7 @@ namespace csharpcore
             sellin = item.SellIn;
             quality = item.Quality;
             sellin.Should().Be(-1);
-            quality.Should().Be(6);
+            quality.Should().Be(4);// quality degrades 4 times after sellIn
 
             item.Quality = 0;
             item.Update();
