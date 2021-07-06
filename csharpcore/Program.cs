@@ -8,9 +8,9 @@ namespace csharpcore
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
-            var betterBuilder = new BetterItemBuilder();
+            var betterBuilder = new ItemDecoratorBuilder();
 
-            IList<BetterItem> Items = new List<BetterItem>{
+            IList<ItemDecorator> Items = new List<ItemDecorator>{
                 betterBuilder.build(
                     new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20}),
                 betterBuilder.build(new Item {Name = "Aged Brie", SellIn = 2, Quality = 0}),

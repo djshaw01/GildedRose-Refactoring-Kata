@@ -6,21 +6,35 @@ namespace csharpcore
     /// goblin in the corner who will insta-rage and one-shot you as he doesn't believe in shared code
     /// ownership"
     /// </summary>
-    public class BetterItem:Item
+    public class ItemDecorator
     {
-        private int _quality;
 
+        protected Item _internal = new Item();
+
+        public virtual string Name
+        {
+            get { return _internal.Name; }
+            set { _internal.Name = value; }
+        }
+
+        public int SellIn
+        {
+            get { return _internal.SellIn; }
+            set { _internal.SellIn = value; }
+        }
         
         /// <summary>
         /// -	The Quality of an item is never negative
         /// -	The Quality of an item is never more than 50
         /// </summary>
-        public new virtual int Quality
+        public virtual int Quality
         {
-            get { return _quality; }
+            get { return _internal.Quality; }
             set
             {
+                int _quality;
                 _quality = value > 50 ? 50 : (value < 0)?0:value;
+                _internal.Quality = _quality;
             }
             
         }

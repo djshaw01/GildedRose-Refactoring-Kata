@@ -12,14 +12,14 @@ namespace csharpcore
         [Fact] 
         public void betteritem_builder_returns_correct_implementation_based_on_item_name()
         {
-            var itemBuilder = _fixture.Build<BetterItemBuilder>()
+            var itemBuilder = _fixture.Build<ItemDecoratorBuilder>()
                 .Create();
             var item = itemBuilder.build(new Item() {Name = "Foobar", SellIn = 10, Quality = 10});
             var sellin = item.SellIn;
             var quality = item.Quality;
             sellin.Should().Be(10);
             quality.Should().Be(10);
-            item.Should().BeOfType<BetterItem>();
+            item.Should().BeOfType<ItemDecorator>();
             item = itemBuilder.build(new Item() {Name = "Conjured Mana Cake", SellIn = 10, Quality = 10});
             sellin = item.SellIn;
             quality = item.Quality;
@@ -53,7 +53,7 @@ namespace csharpcore
         [Fact] 
         public void basic_betteritem_quality_never_greater_than_50()
         {
-            var item = _fixture.Build<BetterItem>()
+            var item = _fixture.Build<ItemDecorator>()
                 .With(i => i.Name, "FooBar")
                 .With(i => i.Quality, 68)
                 .With(i => i.SellIn, 10)
@@ -67,7 +67,7 @@ namespace csharpcore
         [Fact] 
         public void basic_betteritem_quality_never_less_than_0()
         {
-            var item = _fixture.Build<BetterItem>()
+            var item = _fixture.Build<ItemDecorator>()
                 .With(i => i.Name, "FooBar")
                 .With(i => i.Quality, 0)
                 .With(i => i.SellIn, 10)
@@ -82,7 +82,7 @@ namespace csharpcore
         [Fact] 
         public void basic_betteritem_update_reduces_sell_in_and_quality_after_update()
         {
-            var item = _fixture.Build<BetterItem>()
+            var item = _fixture.Build<ItemDecorator>()
                 .With(i => i.Name, "FooBar")
                 .With(i => i.Quality, 50)
                 .With(i => i.SellIn, 10)
@@ -97,7 +97,7 @@ namespace csharpcore
         [Fact] 
         public void basic_betteritem_update_reduces_sell_in_by_one_and_quality_by_two_after_update_if_sellin_less_than_zero()
         {
-            var item = _fixture.Build<BetterItem>()
+            var item = _fixture.Build<ItemDecorator>()
                 .With(i => i.Name, "FooBar")
                 .With(i => i.Quality, 10)
                 .With(i => i.SellIn, 1)

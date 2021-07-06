@@ -4,8 +4,8 @@ namespace csharpcore
 {
     public class GildedRose
     {
-        IList<BetterItem> Items;
-        public GildedRose(IList<BetterItem> Items)
+        IList<ItemDecorator> Items;
+        public GildedRose(IList<ItemDecorator> Items)
         {
             this.Items = Items;
         }

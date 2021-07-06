@@ -4,14 +4,19 @@ namespace csharpcore
     /// - "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
     /// - "Sulfuras" is legendary item and as such its Quality is 80 and it never alters.
     /// </summary>
-    public class LegendaryItem:BetterItem
+    public class LegendaryItem:ItemDecorator
     {
 
-        public int _quality = 80;
+        public static int _quality = 80;
+
+        public LegendaryItem()
+        {
+            _internal.Quality = _quality;
+        }
         public override int Quality
         {
-            get => _quality;
-            set => _quality = value==80?value:80;
+            get => _internal.Quality;
+            set => _internal.Quality = value==80?value:80;
         }
 
         public override void Update()

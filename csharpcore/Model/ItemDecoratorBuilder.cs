@@ -1,8 +1,8 @@
 namespace csharpcore
 {
-    public class BetterItemBuilder
+    public class ItemDecoratorBuilder
     {
-        public BetterItem build(Item item)
+        public ItemDecorator build(Item item)
         {
             if (item.Name.StartsWith("Conjured"))
             {
@@ -22,7 +22,7 @@ namespace csharpcore
             }
 
 
-            return new BetterItem() {Name = item.Name, Quality = item.Quality, SellIn = item.SellIn};
+            return new ItemDecorator() {Name = item.Name, Quality = item.Quality, SellIn = item.SellIn};
         }
     }
 }

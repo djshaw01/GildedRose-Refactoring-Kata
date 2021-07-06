@@ -3,7 +3,7 @@ namespace csharpcore
     /// <summary>
     /// -	"Conjured" items degrade in Quality twice as fast as normal items
     /// </summary>
-    public class ConjuredItem:BetterItem
+    public class ConjuredItem:ItemDecorator
     {
         public override void Update()
         {

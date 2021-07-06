@@ -4,14 +4,20 @@ namespace csharpcore
     /// <summary>
     /// -	"Aged Brie" actually increases in Quality the older it gets
     /// </summary>
-    public class AgedBrie:BetterItem
+    public class AgedBrie:ItemDecorator
     {
-        private string _name = "Aged Brie";
-        public new string Name
+        private static string _name = "Aged Brie";
+
+        public AgedBrie()
         {
-            get => _name;
-            set => _name = (value == _name) ? value : _name;
+            _internal.Name = _name;
         }
+        public override string Name
+        {
+            get => _internal.Name;
+            set => _internal.Name = (value.Equals(_name)) ? value : _name;
+        }
+
         public override void Update()
         {
             SellIn -= 1;
